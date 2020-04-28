@@ -25,7 +25,7 @@
                             </div>
                             <div class="good-desc">
                                 <span class="p1 clamp-2" @click="toDetail(product.skuId)">{{product.supplyTitle}}</span>
-                                <span class="p2">已售{{product.skuSalesNum}}件</span>
+                                <span class="p2">已售{{product.skuSalesNum?product.skuSalesNum:0}}件</span>
                                 <div class="good-price">
                                     <span class="p1">{{jn}}{{product.discountPrice == null ? product.salePrice:product.discountPrice}}</span>
                                     <div class="fl-right" @click="shoucangProdu(product)">
