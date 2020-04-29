@@ -8,7 +8,6 @@ Vue.use(Vuex);
 
 const state = {
     serchName:'',//搜索框输入的内容
-    thirdPartyPaymentUrl:"",
     addreData:{
         lev1:{
             id:null,//国家城市1级ID
@@ -46,7 +45,7 @@ const state = {
     
     classifyKeep:false, //分类是否缓存
 }
-const getters={
+const getters = {
     
 }
 
@@ -71,12 +70,7 @@ const mutations = {
     },
     CLASSIFYKEEP(state,flag){
         return state.classifyKeep = flag
-    },
-    // 第三方支付
-    // GETTHIRDPARTYPAYMENTURL(state,url) {
-    //     return state.thirdPartyPaymentUrl = url;
-    // }
-
+    }
 }
 
 const actions = {

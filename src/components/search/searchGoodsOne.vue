@@ -20,7 +20,6 @@
                             </div>
                             <div class="good-desc">
                                 <span class="p1 clamp-2">{{good.supplyTitle}}</span>
-                                <div class="sales-num">已售:{{good.skuSalesNum ? good.skuSalesNum : 0}}</div>
                                 <div class="country">
                                     <div class="country-img" v-if="good.locationUrl">
                                         <img :src="$webUrl+good.locationUrl">
@@ -347,10 +346,6 @@ export default {
                     color:rgba(102,102,102,1);
                     margin-top:20px;
                     display: inline-block;
-                }
-                .sales-num{
-                    height: 40px;
-                    line-height: 40px;
                 }
             }
             .good-price{
