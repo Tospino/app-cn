@@ -43,6 +43,7 @@ export default {
     },
     orderSn: {
       type: String
+      // type: text
     }
   },
   data() {
@@ -100,7 +101,8 @@ export default {
           data: {
             payTypeDetail: 203,
             orderList: [{ orderId: this.orderSn }]
-          }
+          },
+          dataType:'text'
         }).then(res => {
           // window.location.href = res.Data.payMainNo
           console.log(res);
