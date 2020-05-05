@@ -21,11 +21,11 @@
           <van-icon name="arrow" class="arrow c-999" />
           <span>添加银行卡</span>
         </div>
-        <div class="paymen-content-top" @click="pay">
+        <!-- <div class="paymen-content-top" @click="pay">
           <span></span>
           <span class="c-999"></span>
           <span>第三方付款</span>
-        </div>
+        </div> -->
         <!-- <div class="btn-ljzf" @click="showpaymen">立即付款</div> -->
       </div>
     </van-action-sheet>

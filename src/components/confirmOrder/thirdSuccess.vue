@@ -14,23 +14,23 @@
 
 <script>
 import balanceHeader from "./itemComponents/balanceHeader";
-import ThirdSuccessVue from "./thirdSuccess.vue";
-import {main, park} from '@/api/index';
+// import ThirdSuccessVue from "./thirdSuccess.vue";
+import { main, park } from "@/api/index";
 export default {
   props: {},
   data() {
     return {
-      getPayStatusParams: {
-         status: 0,
-         transac_id: "221b2611-8ac8-11ea-9377-02273b027730",
-         pay_token: "eff11e4d-5f96-4d96-8191-eeb559dc2feb",
-         cust_ref: "FKD202004301750406499d4a43b4e"
-      }
+      // getPayStatusParams: {
+      //   status: 0,
+      //   transac_id: "221b2611-8ac8-11ea-9377-02273b027730",
+      //   pay_token: "eff11e4d-5f96-4d96-8191-eeb559dc2feb",
+      //   cust_ref: "FKD202004301750406499d4a43b4e"
+      // }
     };
   },
   computed: {},
   created() {
-    this.getParams();
+    // this.getParams();
     this.getPayStatus();
   },
   mounted() {
@@ -43,25 +43,41 @@ export default {
     shop() {
       this.$router.push("/control/home");
     },
-    getPayStatus () {
+    // getPayStatus () {
+    //   park({
+    //     url:`/appWallet/callback`,
+    //     method: 'POST',
+    //     data:this.getPayStatusParams
+    //   }).then(res=>{
+    //     console.log(res);
+    //   })
+    getPayStatus() {
       park({
-        url:`/appWallet/callback`,
-        method: 'POST',
-        data:this.getPayStatusParams
-      }).then(res=>{
-        console.log(res);
-      })
-    },
-    getParams () {
-      console.log(111111111111111111111)
-      console.log(this.$route.query)
-      this.getPayStatusParams.status = this.$route.query.status;
-      this.getPayStatusParams.transac_id = this.$route.query.transac_id;
-      this.getPayStatusParams.pay_token = this.$route.query.pay_token;
-      this.getPayStatusParams.cust_ref = this.$route.query.cust_ref;
-      console.log(222222222222222222222)
-      console.log(this.getPayStatusParams)
+        url: `/appWallet/callback`,
+        method: "GET",
+        params: {
+          status: this.$route.query.status,
+          transac_id: this.$route.query.transac_id,
+          pay_token: this.$route.query.pay_token,
+          cust_ref: this.$route.query.cust_ref
+        }
+      }).then(res => {
+        // console.log("GET",res);
+        if (res.status_code === 100) {
+          this.$router.push("/thridlose");
+        }
+      });
     }
+    // getParams() {
+    //   console.log(111111111111111111111);
+    //   console.log(this.$route.query);
+    //   this.getPayStatusParams.status = this.$route.query.status;
+    //   this.getPayStatusParams.transac_id = this.$route.query.transac_id;
+    //   this.getPayStatusParams.pay_token = this.$route.query.pay_token;
+    //   this.getPayStatusParams.cust_ref = this.$route.query.cust_ref;
+    //   console.log(222222222222222222222);
+    //   console.log(this.getPayStatusParams);
+    // }
   },
   components: {
     balanceHeader

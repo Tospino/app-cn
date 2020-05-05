@@ -99,35 +99,6 @@ export default {
     },
     // 立即支付
     confirm() {
-      if (this.payTypeList[0].type === 203) {
-        park({
-          url: `/appsaleorder/orderlaunchpay`,
-          method: "POST",
-          data: {
-            payTypeDetail: 203,
-            orderList: [{ orderId: this.orderSn }]
-          },
-          dataType:'text'
-        }).then(res => {
-          // window.location.href = res.Data.payMainNo
-          // console.log(res);
-          park({
-            url: `/appWallet/CreateInvoice?payMainNo=${res.Data.payMainNo}`,
-            method: "POST"
-          }).then(result => {
-            // console.log(result);
-            if (result.status_code) {
-              // 第三方支付页面跳转
-              // this.$store.commit("GETTHIRDPARTYPAYMENTURL",result.data.resultUrl);
-              // console.log(this.$store.state.thirdPartyPaymentUrl)
-              // this.$router.push("/thirdPartyPayment")
-              window.location.href = result.data.resultUrl;
-                // window.open( result.data.resultUrl, "_blank");
-            }
-          });
-        });
-        return;
-      }
       this.$emit("showPassWord", true, "支付");
     },
     getonlinepaytypelist() {
