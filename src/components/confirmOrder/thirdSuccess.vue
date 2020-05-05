@@ -14,7 +14,7 @@
 
 <script>
 import balanceHeader from "./itemComponents/balanceHeader";
-import ThirdSuccessVue from "./ThirdSuccess.vue";
+import ThirdSuccessVue from "./thirdSuccess.vue";
 import {main, park} from '@/api/index';
 export default {
   props: {},
