@@ -8,9 +8,9 @@
       :close-on-click-overlay="false"
     >
       <div class="paymen-content">
-        <div class="paymen-content-top" @click="showyinhang">
+        <div class="paymen-content-top">
           <span>付款方式</span>
-          <van-icon name="arrow" />
+          <!-- <van-icon name="arrow" /> -->
           <span>{{oneTypeName}}</span>
         </div>
         <div class="paymen-content-top">
