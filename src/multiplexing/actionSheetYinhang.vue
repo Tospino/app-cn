@@ -83,10 +83,10 @@ export default {
     toaddBankcar() {
       this.$router.push({ name: "添加银行卡" });
     },
-    pay() {
-      this.showAction = false;
-      this.$emit("toParnet", { name: "第三方支付", type: 203 });
-    }
+    // pay() {
+    //   this.showAction = false;
+    //   this.$emit("toParnet", { name: "第三方支付", type: 203 });
+    // }
   },
   components: {}
 };

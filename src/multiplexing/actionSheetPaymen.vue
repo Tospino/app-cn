@@ -25,7 +25,6 @@
     <action-sheet-yinhang
       ref="actionSheetYinhang"
       :orderSn="orderSn"
-      @toParnet="fnParent"
       @change="onChangePayMethod"
     ></action-sheet-yinhang>
   </div>
@@ -52,10 +51,6 @@ export default {
         {
           type: 201,
           name: "余额支付"
-        },
-        {
-          type: 203,
-          name: "第三方支付"
         }
       ],
       list: [],
@@ -82,21 +77,29 @@ export default {
     onChangePayMethod(item) {
       this.oneTypeName = item.msg;
       console.log("paymethod", item);
-    },
-    // 付款方式
-    fnParent(e) {
-      this.oneTypeName = e.name;
-      // console.log("付款方式", e);
-      this.payTypeList = [
+       this.payTypeList = [
         {
-          name: e.name,
-          type: e.type
+          name: item.name,
+          type: item.type
         }
       ];
-      this.list[0].payTypeList = e.type;
-      this.list[0].payTypeDetail = e.name;
-      this.$refs.actionSheetYinhang.showAction = false;
+      this.list[0].payTypeList = item.type;
+      this.list[0].payTypeDetail = item.name;
     },
+    // // 付款方式
+    // fnParent(e) {
+    //   this.oneTypeName = e.name;
+    //   // console.log("付款方式", e);
+    //   this.payTypeList = [
+    //     {
+    //       name: e.name,
+    //       type: e.type
+    //     }
+    //   ];
+    //   this.list[0].payTypeList = e.type;
+    //   this.list[0].payTypeDetail = e.name;
+    //   this.$refs.actionSheetYinhang.showAction = false;
+    // },
     // 立即支付
     confirm() {
       this.$emit("showPassWord", true, "支付");

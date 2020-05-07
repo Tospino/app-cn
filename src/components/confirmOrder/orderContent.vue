@@ -208,13 +208,11 @@ export default {
       payTypeList: [], //支付方式列表
       shopcrtList: [],
       moeny: 0,
-      //   payTypeDetail: 201, //余额支付ID,暂时写死
-      payTypeDetail: 203, //余额支付ID,暂时写死
+      payTypeDetail: 201, //余额支付ID,暂时写死
       orderIdList: [],
       // 用户支付
       userinfoShop: {},
-      orderSn:""
-      
+      orderSn: ""
     };
   },
   computed: {
@@ -413,7 +411,7 @@ export default {
         shopcrtList: this.shopcrtList
       };
       batchmakeorderApi(obj).then(res => {
-        console.log(res)
+        console.log(res);
         // this.orderSn=res.Data[0].orderSn
         console.log("测试", res.Data[0].orderSn);
         let orderIdArr = [];
@@ -429,7 +427,7 @@ export default {
               orderIdArr.push({ orderId: Number(item.orderId) });
             });
             this.orderIdList = orderIdArr;
-            this.orderSn=this.orderIdList[0].orderId+""
+            this.orderSn = this.orderIdList[0].orderId + "";
           }
         } else if (res.code == 1) {
           Toast("参数requestModel不能为空");
@@ -474,7 +472,6 @@ export default {
 
     //订单发起支付
     orderlaunchpay(data) {
-
       orderlaunchpayApi(data).then(res => {
         console.log(data);
 
