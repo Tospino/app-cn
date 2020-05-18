@@ -135,6 +135,7 @@
                     <div class="footer-exhibition">
                         <div  class="exhibition-con">
                             <div class="exhibition-left" v-for="(searchgoodDao,index) in searchgoodDaolist" :key="index">
+                                <div class="shouwan" v-if="!searchgoodDao.canSalesNum"  @click="toDetail(searchgoodDao.skuId)">售罄</div>
                                 <img :src="$webUrl + searchgoodDao.imgUrl" @click="toDetail(searchgoodDao.skuId)">
                                 <div class="produced">
                                     <span class="icon" v-if="searchgoodDao.locationUrl">
@@ -154,6 +155,7 @@
                                     <span class="fl-right" style="color:red;">已售:{{searchgoodDao.skuSalesNum ? searchgoodDao.skuSalesNum : 0}}件</span>
                                 </div>
                                 <!-- <div>已售:{{searchgoodDao.skuSalesNum ? searchgoodDao.skuSalesNum : 0}}件</div> -->
+                                
                             </div>
                         </div>
                     </div>
@@ -920,6 +922,23 @@ export default {
                 .sales-num{
                     font-size: 24px;
                     margin-top: 10px;
+                }
+                .shouwan{
+                    position: absolute;
+                    left:0;
+                    top:0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.5);
+                    color: #fff;
+                    font-size: 30px;
+                    line-height: 40px;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    z-index: 10;
                 }
             }
         }
