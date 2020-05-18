@@ -34,6 +34,7 @@
                             <div class="good-price">
                                 <span class="p1">{{jn}}{{good.discountPrice == null ? good.salePrice:good.discountPrice}}</span>
                                 <span class="p3" v-if="good.discountPrice != null">{{jn}}{{good.salePrice}}</span>
+                                <span class="fl-right">Sales:{{good.skuSalesNum ? good.skuSalesNum : 0}}</span>
                                 <!-- 省略号,暂时先隐藏 -->
                                 <!-- <span class="p2">
                                     <van-icon name="ellipsis" />
@@ -337,6 +338,7 @@ export default {
                 left:250px;
                 font-size:26px;
                 color: #333;
+                width:480px;
                 .p1{
                     line-height:39px;
                     height: 80px;
@@ -354,6 +356,7 @@ export default {
                 color: #F83600;
                 font-size:36px;
                 margin-top:20px;
+                width:480px;
                 .p2{
                     position: absolute;
                     left:470px;

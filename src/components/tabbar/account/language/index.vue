@@ -96,7 +96,7 @@ export default {
 			if(this.$route.query.type == 1){
         window.location.href = this.countryItem.webUrl + '#/control/home?token='+localStorage.token
 			}else{
-				Toast('The current languagge is English')
+				Toast('已经是中文')
 			}
 			
 		}
