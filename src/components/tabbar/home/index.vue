@@ -135,8 +135,10 @@
                     <div class="footer-exhibition">
                         <div  class="exhibition-con">
                             <div class="exhibition-left" v-for="(searchgoodDao,index) in searchgoodDaolist" :key="index">
-                                <div class="shouwan" v-if="!searchgoodDao.canSalesNum"  @click="toDetail(searchgoodDao.skuId)">售罄</div>
-                                <img :src="$webUrl + searchgoodDao.imgUrl" @click="toDetail(searchgoodDao.skuId)">
+                                <div class="exhibition-img" @click="toDetail(searchgoodDao.skuId)">
+                                    <div class="shouwan" v-if="!searchgoodDao.canSalesNum">售罄</div>
+                                    <img :src="$webUrl + searchgoodDao.imgUrl" >
+                                </div>
                                 <div class="produced">
                                     <span class="icon" v-if="searchgoodDao.locationUrl">
                                         <img :src="$webUrl + searchgoodDao.locationUrl">
@@ -923,23 +925,27 @@ export default {
                     font-size: 24px;
                     margin-top: 10px;
                 }
-                .shouwan{
-                    position: absolute;
-                    left:0;
-                    top:0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0,0,0,0.5);
-                    color: #fff;
-                    font-size: 30px;
-                    line-height: 40px;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    flex-direction: column;
-                    z-index: 10;
+                .exhibition-img{
+                    position: relative;
+                    .shouwan{
+                        position: absolute;
+                        left:0;
+                        top:0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0,0,0,0.5);
+                        color: #fff;
+                        font-size: 30px;
+                        line-height: 40px;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        flex-direction: column;
+                        z-index: 10;
+                    }
                 }
+                
             }
         }
     }

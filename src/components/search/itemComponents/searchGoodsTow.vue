@@ -3,7 +3,10 @@
     <div class="footer-exhibition">
         <div class="exhibition-con clearfix">
             <div class="exhibition-left" @click="toProduDetail(good.skuId)" v-for="good in dataList" :key="good.skuId">
-                <img :src="$webUrl+good.imgUrl">
+                <div class="exhibition-img">
+                    <div class="shouwan" v-if="!good.canSalesNum">售罄</div>
+                    <img :src="$webUrl+good.imgUrl">
+                </div>
                 <div class="produced">
                     <span class="icon">
                         <img :src="$webUrl+good.locationUrl">
@@ -191,6 +194,26 @@ export default {
                 font-size: 60px;
                 top: -35px;
                 right: 0;
+            }
+        }
+        .exhibition-img{
+            position: relative;
+            .shouwan{
+                position: absolute;
+                left:0;
+                top:0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                color: #fff;
+                font-size: 30px;
+                line-height: 40px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: column;
+                z-index: 10;
             }
         }
     }

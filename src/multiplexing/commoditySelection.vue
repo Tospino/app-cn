@@ -312,7 +312,7 @@ export default {
         },
         //确定按钮购买商品
         buyProduct(){
-            if(this.btnName == 'Confirm'){
+            if(this.btnName == '确定'){
                 this.buyshoppingCar()
                 return
             }
