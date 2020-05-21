@@ -67,7 +67,8 @@
                         <span class="t3">TOSPINO</span>
                     </div>
                 </div>
-
+                <div class="fbm-time">付款后预计 {{detailmData.arriveDateRangeString}} 内送达 </div>
+                
                 <van-cell-group class="border-0" @click="changeComStatus(true,false)">
                     <van-field v-model="username" clearable right-icon="arrow" :placeholder="detailmData.skuValuesTitle" left-icon="arrow" disabled>
                         <div slot="left-icon" size="small" type="primary" class="text-left" >
@@ -77,7 +78,10 @@
                         </div>  
                     </van-field>
                 </van-cell-group>
-
+                <div class="fbm-wuliu">
+                    <img :src="$webUrl+'/common/image/zhiyou.png'"/>
+                    <span>{{detailmData.areaName}}直达</span>
+                </div>
                 <div class="good-comment" @click="$router.push({name:'商品详情评价',query:{skuid:detailmData.skuId}})" ref="goodComment"  v-if="false">
                     <div v-if="detailmData.evaContent">
                         <div class="comment-top">
@@ -379,6 +383,24 @@ export default {
         width: 100%;
         padding: 30px 30px 0;
         box-sizing: border-box;
+    }
+    .fbm-time{
+        padding: 0 30px;
+        height: 60px;
+        line-height: 60px;
+        font-size:26px;
+        font-weight:400;
+        color:rgba(8,129,214,1);
+    }
+    .fbm-wuliu{
+        padding: 10px 30px;
+        color: #DB9000;
+        line-height: 40px;
+        img{
+            width: 45px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
     }
     .miaoshu{
         position: relative;

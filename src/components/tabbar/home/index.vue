@@ -140,10 +140,19 @@
                                     <img :src="$webUrl + searchgoodDao.imgUrl" >
                                 </div>
                                 <div class="produced">
-                                    <span class="icon" v-if="searchgoodDao.locationUrl">
+                                    <span class="icon" v-if="searchgoodDao.expId == 1">
+                                        <img :src="$webUrl+'/common/image/zhiyou.png'"/>
+                                    </span>
+                                    <span class="icon" v-else>
                                         <img :src="$webUrl + searchgoodDao.locationUrl">
                                     </span>
-                                    <span class="produced-font">{{searchgoodDao.locationName ? searchgoodDao.locationName : ''}}</span>
+                                    <span class="produced-font" v-if="searchgoodDao.expId == 1">
+                                        <span>{{searchgoodDao.areaName ? searchgoodDao.areaName : ''}}</span>
+                                        <span>直邮</span>
+                                    </span>
+                                    <span class="produced-font" v-else>
+                                        <span>{{searchgoodDao.locationName ? searchgoodDao.locationName : ''}}</span>
+                                    </span>
                                 </div>
                                 <div class="clamp-2 miaoshu">{{searchgoodDao.supplyTitle}}</div>
                                 <div class="score">

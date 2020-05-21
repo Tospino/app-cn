@@ -22,12 +22,23 @@
                             <div class="good-desc">
                                 <span class="p1 clamp-2">{{good.supplyTitle}}</span>
                                 <div class="country">
-                                    <div class="country-img" v-if="good.locationUrl">
-                                        <img :src="$webUrl+good.locationUrl">
+                                    <div v-if="good.expId == 1">
+                                         <div class="country-img">
+                                            <img :src="$webUrl+'/common/image/zhiyou.png'"/>
+                                        </div>
+                                        <div class="guojia">
+                                            <span>{{good.areaName}}直达</span>
+                                        </div>
                                     </div>
-                                    <div class="guojia" v-if="good.locationName">
-                                        <span>{{good.locationName}}</span><br>
+                                    <div v-else>
+                                        <div class="country-img" v-if="good.locationUrl">
+                                            <img :src="$webUrl+good.locationUrl">
+                                        </div>
+                                        <div class="guojia" v-if="good.locationName">
+                                            <span>{{good.locationName}}</span><br>
+                                        </div>
                                     </div>
+                                    
                                     <van-rate v-model="good.starNumber" readonly class="rate"/>
                                     <span class="rate-num">{{good.manNumber}}</span>
                                 </div>

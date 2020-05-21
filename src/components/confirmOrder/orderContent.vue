@@ -92,21 +92,25 @@
       </div>
       <div class="payment b-t-1">
         <span>配送</span>
-        <div
-          class="select"
-          v-if="order.deliverType==1 || order.deliverType==2"
-        >{{order.deliverType==1? 'Tospino物流':'上门自取'}}</div>
+        <div class="select" v-if="order.deliverType==1 || order.deliverType==2">{{order.deliverType==1? 'Tospino物流':'上门自取'}}</div>
         <div class="select" v-else>
           <div class="gj-img">
-            <img :src="$webUrl+order.areaImg" />
+            <img :src="$webUrl+'/common/image/zhiyou.png'" v-if="orderData.hasFBM == 1"/>
+            <img :src="$webUrl+order.areaImg"  v-else/>
           </div>
           <span>{{order.areaName}}</span>
+          <span v-if="orderData.hasFBM == 1">直邮</span>
         </div>
       </div>
       <div class="heji b-t-1">
         <span class="p1">合计</span>
         <span class="p2 c-orange">{{order.currencySignWebsite}}{{order.orderAmountWebsite}}</span>
       </div>
+
+      <div class="payment b-t-1" v-if="order.transitTimeRangeString">
+        <span class="fbm-time" >付款后预计 {{order.transitTimeRangeString}} 内送达 </span>
+      </div>
+
       <div class="beizhu">
         <van-cell-group>
           <van-field
@@ -120,6 +124,8 @@
         </van-cell-group>
       </div>
     </div>
+
+    <div class="m-b-20 fbm-beizhu" v-if="orderData.hasFBM == 1">注：直邮商品不支持线上售后，请联系客服咨询！！！</div>
 
     <div class="total">
       <div class="total-top">
@@ -593,6 +599,11 @@ export default {
       font-weight: bold;
       margin-left: 29px;
     }
+    .fbm-time{
+      font-size:26px;
+      font-weight:400;
+      color:rgba(8,129,214,1);
+    }
   }
   .good-detail {
     .good-detail-header {
@@ -772,6 +783,11 @@ export default {
         }
       }
     }
+  }
+  .fbm-beizhu{
+    color:rgba(235,2,2,1);
+    font-size:20px;
+    padding: 0 30px;
   }
   .total {
     height: 126px;

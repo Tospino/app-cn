@@ -10,7 +10,11 @@
                 <div class="car-icon">
                     <img src="@/assets/img/confirmOrder/logistics@2x.png">
                 </div>
-                <span>{{orderStatus(detailObj.deliverType,'deliverTypes')}}</span>
+                <span v-if="detailObj.expId == 2">{{orderStatus(detailObj.deliverType,'deliverTypes')}}</span>
+                <span v-if="detailObj.expId == 1">
+                    <img class="zhida" :src="$webUrl+'/common/image/zhiyou.png'"/>
+                    {{detailObj.businessCountryName}}直邮
+                </span>
                 <div class="fl-right" v-if="detailObj.hasLogistics == 1" @click="toLogistics(detailObj.orderId)">
                     <van-icon name="arrow" size="21" class="arrow-icon"/>
                 </div>
@@ -76,8 +80,12 @@
                     <span>订单总价：</span>
                     <span class="fl-right c-orange font-24">{{detailObj.currencySignWebsite}}{{detailObj.orderAmountWebsite}}</span>
                 </div>
+                <div class="mingxi" v-if="detailObj.arriveDateRangeString">
+                    <span class="fbm-time">付款后预计 {{detailObj.arriveDateRangeString}} 内送达</span>
+                </div>
             </div>
         </div>
+        <div class="m-b-30 fbm-beizhu" v-if="detailObj.expId == 1">注：直邮商品不支持线上售后，请联系客服咨询！！！</div>
         <div class="address-p4">
             <div class="p4-top">
                 订单信息
@@ -459,6 +467,11 @@ export default {
                 vertical-align: text-bottom;
                 margin-right:23px;
             }
+            .zhida{
+                width: 30px;
+                height: 30px;
+                vertical-align: middle;
+            }
         }
         .p2-bottom{
             height: 180px;
@@ -503,7 +516,17 @@ export default {
             height: 50px;
             font-size: 20px;
             padding: 0 30px;
+            .fbm-time{
+                font-size:26px;
+                font-weight:400;
+                color:rgba(8,129,214,1);
+            }
         }
+    }
+    .fbm-beizhu{
+        color:rgba(235,2,2,1);
+        font-size:20px;
+        padding: 0 30px;
     }
     .address-p4{
         background-color: #fff;
@@ -643,5 +666,8 @@ export default {
 }
 .m-t-29{
     margin-top:29px;
+}
+.m-b-30 {
+  margin-bottom: 30px;
 }
 </style>

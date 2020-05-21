@@ -8,10 +8,18 @@
                     <img :src="$webUrl+good.imgUrl">
                 </div>
                 <div class="produced">
-                    <span class="icon">
-                        <img :src="$webUrl+good.locationUrl">
-                    </span>
-                    <span class="produced-font">{{good.locationName}}</span>
+                   <div v-if="good.expId == 1">
+                        <span class="icon">
+                            <img :src="$webUrl+'/common/image/zhiyou.png'"/>
+                        </span>
+                        <span class="produced-font">{{good.areaName}}直达</span>
+                    </div>
+                    <div v-else>
+                        <span class="icon">
+                            <img :src="$webUrl+good.locationUrl">
+                        </span>
+                        <span class="produced-font">{{good.locationName}}</span>
+                    </div>
                 </div>
                 <div class="produced-title">
                     <span>{{good.supplyTitle}}</span>
