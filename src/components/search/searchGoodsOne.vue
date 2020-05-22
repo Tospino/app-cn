@@ -27,7 +27,7 @@
                                             <img :src="$webUrl+'/common/image/zhiyou.png'"/>
                                         </div>
                                         <div class="guojia">
-                                            <span>{{good.areaName}}直达</span>
+                                            <span>{{good.areaName}}直邮</span>
                                         </div>
                                     </div>
                                     <div v-else>

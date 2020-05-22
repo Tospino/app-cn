@@ -26,7 +26,7 @@
                         </div>
                         <div class="good-logistics" v-if="dataitem.expId == 1">
                             <img :src="$webUrl+'/common/image/zhiyou.png'"/>
-                            <span>{{dataitem.areaName}}直达</span>
+                            <span>{{dataitem.areaName}}直邮</span>
                         </div>
                         <div class="good-price">
                             <span class="price-p1">{{jn}}{{dataitem.discountPrice ? dataitem.discountPrice : dataitem.salePrice}}</span>

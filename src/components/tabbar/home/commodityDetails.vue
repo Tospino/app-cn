@@ -67,7 +67,7 @@
                         <span class="t3">TOSPINO</span>
                     </div>
                 </div>
-                <div class="fbm-time">付款后预计 {{detailmData.arriveDateRangeString}} 内送达 </div>
+                <div class="fbm-time">{{detailmData.arriveDateRangeString}} 尽快送达。</div>
                 
                 <van-cell-group class="border-0" @click="changeComStatus(true,false)">
                     <van-field v-model="username" clearable right-icon="arrow" :placeholder="detailmData.skuValuesTitle" left-icon="arrow" disabled>
@@ -80,7 +80,7 @@
                 </van-cell-group>
                 <div class="fbm-wuliu">
                     <img :src="$webUrl+'/common/image/zhiyou.png'"/>
-                    <span>{{detailmData.areaName}}直达</span>
+                    <span>{{detailmData.areaName}}直邮</span>
                 </div>
                 <div class="good-comment" @click="$router.push({name:'商品详情评价',query:{skuid:detailmData.skuId}})" ref="goodComment"  v-if="false">
                     <div v-if="detailmData.evaContent">

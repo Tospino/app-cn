@@ -328,7 +328,7 @@ export default {
         }
         .good-detail-title{
             display: inline-block;
-            width: 397px;
+            width: 350px;
             .name{
                 display: inline-block;
                 margin-bottom: 24px;

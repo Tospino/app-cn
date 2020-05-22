@@ -81,7 +81,7 @@
                     <span class="fl-right c-orange font-24">{{detailObj.currencySignWebsite}}{{detailObj.orderAmountWebsite}}</span>
                 </div>
                 <div class="mingxi" v-if="detailObj.arriveDateRangeString">
-                    <span class="fbm-time">付款后预计 {{detailObj.arriveDateRangeString}} 内送达</span>
+                    <span class="fbm-time">{{detailObj.arriveDateRangeString}} 尽快送达。</span>
                 </div>
             </div>
         </div>
@@ -596,7 +596,6 @@ export default {
             
         }
         .price{
-            float: right;
             text-align: right;
             .p3{
                 font-size:28px;

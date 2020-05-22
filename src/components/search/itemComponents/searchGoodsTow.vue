@@ -12,7 +12,7 @@
                         <span class="icon">
                             <img :src="$webUrl+'/common/image/zhiyou.png'"/>
                         </span>
-                        <span class="produced-font">{{good.areaName}}直达</span>
+                        <span class="produced-font">{{good.areaName}}直邮</span>
                     </div>
                     <div v-else>
                         <span class="icon">
