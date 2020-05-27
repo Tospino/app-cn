@@ -40,7 +40,6 @@
                 <span>退款金额</span>
                 <span class="text-tk c-orange f-30">
                     {{detailObj.currencySignWebsite}}{{detailObj.orderAmountWebsite}}
-                    <span class="c-999 f-22">(含运费）</span>
                 </span>
             </div>
         </div>

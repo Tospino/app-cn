@@ -594,7 +594,7 @@ export default {
             }
             .good-price{
                 position: absolute;
-                top:209px;
+                top:229px;
                 left:320px;
                 width: 400px;
                 .price-p1{

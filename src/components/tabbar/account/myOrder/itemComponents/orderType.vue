@@ -214,12 +214,10 @@ export default {
     margin-bottom: 20px;
     .good-detail-header{
         width: 100%;
-        height: 79px;
-        line-height: 79px;
         font-size:26px;
         color: #333;
         background-color: #fff;
-        padding-left: 30px;
+        padding:20px 0px 20px 30px;
         box-sizing: border-box;
         border-bottom: 1px solid #F2F3F5;
         .dfk{
