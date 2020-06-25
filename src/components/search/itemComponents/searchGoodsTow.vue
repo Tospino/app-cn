@@ -2,7 +2,7 @@
 <!-- 你可能还喜欢,推荐商品页 -->
     <div class="footer-exhibition">
         <div class="exhibition-con clearfix">
-            <div class="exhibition-left" @click="toProduDetail(good.skuId)" v-for="good in dataList" :key="good.skuId">
+            <div class="exhibition-left" @click="toProduDetail(good.skuId)" v-for="(good,index) in dataList" :key="index">
                 <div class="exhibition-img">
                     <div class="shouwan" v-if="!good.canSalesNum">售罄</div>
                     <img :src="$webUrl+good.imgUrl">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="produced-title">
-                    <span>{{good.supplyTitle}}</span>
+                    <span v-html="good.supplyTitle"></span>
                 </div>
                 <div class="score">
                     <van-rate v-model="good.starNumber" readonly  color="#FA5300"/>
@@ -171,7 +171,7 @@ export default {
         }
         .produced-title{
             padding-left:10px;
-            max-height: 38px;
+            max-height: 50px;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;

@@ -26,6 +26,15 @@ export function searchProductApi(params) {
     })
 }
 
+//搜索引擎搜索商品
+export function HomeEsApi(params) {
+    return park({
+        url:`/appeshomepage/HomeEsAPI`,
+        method: 'POST',
+        data:params
+    })
+}
+
 //搜索发现
 export function searchFindApi(params) {
     return park({

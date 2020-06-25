@@ -13,14 +13,14 @@
             <!-- 模式一 -->
             <scroll class="bscroll-wrapper" ref="wrapper" :data="recordGroup" :pulldown="pulldown" :pullup="pullup" @pulldown="_pulldown" @pullup="_pullup">
                 <div v-show="goodsShow1" class="footprint-goods">
-                    <div class="footprint-goods-content" v-for="good in dataList" :key="good.skuId" @click="toProduDetail(good.skuId)">
+                    <div class="footprint-goods-content" v-for="(good,index) in dataList" :key="index" @click="toProduDetail(good.skuId)">
                         <div>
                             <div class="good-img">
                                 <div class="shouwan" v-if="!good.canSalesNum">售罄</div>
                                 <img :src='$webUrl+good.imgUrl'>
                             </div>
                             <div class="good-desc">
-                                <span class="p1 clamp-2">{{good.supplyTitle}}</span>
+                                <div class="p1 clamp-2" v-html="good.supplyTitle" ></div>  
                                 <div class="country">
                                     <div v-if="good.expId == 1">
                                          <div class="country-img">
@@ -71,7 +71,7 @@
 import searchGoodsTow from './itemComponents/searchGoodsTow'
 import searchHead from '@/multiplexing/searchHead.vue'
 import noSearGood from '@/multiplexing/noSearGood'
-import {searchProductApi} from '@/api/search/index';
+import {searchProductApi,HomeEsApi} from '@/api/search/index';
 import nosear1 from '@/assets/img/search/nosear1.png'
 export default {
     props: {
@@ -202,7 +202,7 @@ export default {
         },
         //搜索商品
         searchProduct(data,flag){
-            searchProductApi(data).then(res => {
+            HomeEsApi(data).then(res => {
                 if(res.code == 0){
                     if(flag){
                         this.dataList = res.Data.list
@@ -212,18 +212,39 @@ export default {
                     this.footerData = res.Data
                     this.totalCount = res.Data.totalCount
                     this.recordGroup = this.dataList
-
                     if(this.dataList.length > 0){
                         this.noSearchStatus = true
                         if(this.dataList.length >= this.totalCount){
                             this.pullup = false
                         }
-                        
                     }else{
                         this.noSearchStatus = false
                         this.pulldown = false
                         this.pullup = false
                     }
+                }else{
+                    searchProductApi(data).then(res => {
+                        if(res.code == 0){
+                            if(flag){
+                                this.dataList = res.Data.list
+                            }else{
+                                this.dataList = this.dataList.concat(res.Data.list);
+                            }
+                            this.footerData = res.Data
+                            this.totalCount = res.Data.totalCount
+                            this.recordGroup = this.dataList
+                            if(this.dataList.length > 0){
+                                this.noSearchStatus = true
+                                if(this.dataList.length >= this.totalCount){
+                                    this.pullup = false
+                                }
+                            }else{
+                                this.noSearchStatus = false
+                                this.pulldown = false
+                                this.pullup = false
+                            }
+                        }
+                    })
                 }
             })
         },
