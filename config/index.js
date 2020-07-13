@@ -1,3 +1,11 @@
+/*
+ * @Author: 曹建勇
+ * @Date: 2020-07-07 18:10:48
+ * @LastEditTime: 2020-07-13 15:49:23
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \app-cn\config\index.js
+ */
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -11,15 +19,16 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            // '/api': {
-            //   target: 'http://192.168.3.161:8086',  //目标接口域名
-            //   // target: 'http://192.168.3.8:83',  //目标接口域名  192.168.3.239
-            //   // target: 'http://192.168.3.107:83',  //目标接口域名 
-            //   changeOrigin: true, //是否跨域
-            //   pathRewrite: {
-            //     '^/api': '' //重写接口
-            //   }
-            // },
+            '/geolocation': {
+                //   target: 'http://192.168.3.161:8086',  //目标接口域名
+                target: 'https://www.googleapis.com',  //目标接口域名
+                // target: 'http://192.168.3.8:83',  //目标接口域名  192.168.3.239
+                // target: 'http://192.168.3.107:83',  //目标接口域名 
+                changeOrigin: true, //是否跨域
+                pathRewrite: {
+                    '^/geolocation': '' //重写接口
+                }
+            },
         },
 
         // Various Dev Server settings
